@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // This is the data we will be using, study it but don't change anything, yet.
 
 let menuItems = [
@@ -8,7 +9,8 @@ let menuItems = [
   'Music',
   'Log Out'
 ];
-
+console.log("it's all linked up and you're good to go");
+const isWorking = "should be able to see this string";
 /* 
   Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
 
