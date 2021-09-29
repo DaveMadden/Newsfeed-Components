@@ -25,6 +25,7 @@ const isWorking = "should be able to see this string";
 function menuMaker(items) {
   const menu = document.createElement('div');
   const list = document.createElement('ul');
+  menu.classList.add('menu');
 
   menu.appendChild(list);
   
@@ -35,12 +36,17 @@ function menuMaker(items) {
   })
 
   const menuButton = document.querySelector('.menu-button');
+  
   menuButton.addEventListener('click', () => {
-    menu.classList.toggle('.menu--open');
+    console.log("button fucking pressed")
+    menu.classList.toggle('menu--open'); //knows it's already a class so don't put a fucking .
   })
 
   return menu;
 }
+
+const header = document.querySelector('.header');
+header.appendChild(menuMaker(menuItems));
 
 // const test = menuMaker(menuItems);
 // console.log(test);
