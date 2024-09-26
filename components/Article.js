@@ -77,17 +77,64 @@ const data = [
     firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
           hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
           Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
-
+  
     secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
           hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
           hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
           hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
-
+  
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Pair programming is kinda greqat',
+    date: 'Jan 1st, 1969',
+    firstParagraph: `This is the first paragraph `,
+  
+    secondParagraph: `this is the second paragraph `,
+  
+    thirdParagraph: `This is the third paragraph`
   }
 ];
+
+function articleMaker(element){
+  const box = document.createElement('div');
+  box.classList.add('article');
+  const title = document.createElement('h2')
+  const pdate = document.createElement('p')
+  pdate.classList.add('date');
+  const p1 = document.createElement('p');
+  const p2 = document.createElement('p');
+  const p3 = document.createElement('p');
+  const spanButton = document.createElement('span');
+  spanButton.classList.add('expandButton')
+
+  box.appendChild(title);
+  box.appendChild(pdate);
+  box.appendChild(p1);
+  box.appendChild(p2);
+  box.appendChild(p3);
+  box.appendChild(spanButton);
+
+  title.textContent = element.title;
+  pdate.textContent = element.date;
+  p1.textContent = element.firstParagraph;
+  p2.textContent = element.secondParagraph;
+  p3.textContent = element.thirdParagraph;
+
+  spanButton.textContent = "+"
+
+  spanButton.addEventListener('click', () =>{
+    box.classList.toggle('article-open');
+  })
+  return box;
+}
+
+data.forEach(element => {
+  const content = document.querySelector('.articles');
+  content.appendChild(articleMaker(element));
+})
 
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
